@@ -37,12 +37,15 @@
     .slider{position:relative;max-width:600px;margin:20px auto}
     .slides{display:none}
     .prev, .next{
-      cursor:pointer; position:absolute; top:50%; width:auto; padding:8px;
-      margin-top:-22px; color:#fff; font-weight:bold; font-size:18px;
-      background:rgba(0,0,0,0.4); border-radius:0 3px 3px 0; user-select:none;
+      cursor:pointer; position:absolute; top:50%; width:auto;
+      padding:16px; margin-top:-30px;
+      color:#fff; font-weight:bold; font-size:40px;
+      background:rgba(0,0,0,0.5); border-radius:4px;
+      user-select:none; transition:0.3s;
     }
-    .next{right:0;border-radius:3px 0 0 3px}
-    .prev:hover, .next:hover{background:rgba(0,0,0,0.7)}
+    .next{right:0}
+    .prev{left:0}
+    .prev:hover, .next:hover{background:rgba(0,0,0,0.8)}
   </style>
 </head>
 <body>
