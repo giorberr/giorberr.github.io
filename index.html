@@ -24,14 +24,23 @@
     }
     h1{font-size:32px; margin:0 0 10px; line-height:1.2}
     .subtitle{color:var(--muted); margin-bottom:18px}
-    h2{font-size:22px; margin:24px 0 10px; color:var(--accent)}
     p{margin:8px 0; line-height:1.5}
     img, video{max-width:600px; width:100%; border-radius:12px; margin:16px auto; display:block;}
+    /* section header with pill */
+    .section-header{
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:12px;
+    }
+    .section-header h2{margin:0; font-size:22px; color:var(--accent)}
     .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:6px 10px;border-radius:999px;
-      background:var(--accent2);color:#fff;
-      font-size:12px;margin-bottom:20px
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:var(--accent2);
+      color:#fff;
+      font-size:12px;
+      font-weight:600;
+      white-space:nowrap;
     }
     /* slider styles */
     .slider{position:relative;max-width:600px;margin:20px auto;text-align:center}
@@ -60,15 +69,17 @@
       <div class="subtitle">Mechanical Engineer • Robotics & Automation</div>
 
       <!-- Kitting System -->
-      <div class="pill">Production Deployment</div>
-      <h2>Garment Kitting System – Fanuc CRX-25iA</h2>
+      <div class="section-header">
+        <h2>Garment Kitting System – Fanuc CRX-25iA</h2>
+        <span class="pill">Production Deployment</span>
+      </div>
       <div class="slider" id="slider1">
+        <img class="slides" src="pictures/rack_cad.png" alt="Rack CAD"/>
         <img class="slides" src="pictures/fork_platform.jpeg" alt="Fork Platform"/>
         <img class="slides" src="pictures/fork_rack.jpeg" alt="Fork Rack"/>
         <img class="slides" src="pictures/forks.jpg" alt="Forks Assembly"/>
         <img class="slides" src="pictures/racks.jpeg" alt="Racks"/>
         <img class="slides" src="pictures/cardboard_rack.jpeg" alt="Cardboard Rack"/>
-        <img class="slides" src="pictures/rack_cad.png" alt="Rack CAD"/>
         <a class="prev" onclick="plusSlides(-1, slider1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1, slider1)">&#10095;</a>
         <div class="thumbs"></div>
@@ -78,8 +89,10 @@
       <p><b>Outcome:</b> Deployed in production, improving efficiency and reducing manual labor.</p>
 
       <!-- Order Verification -->
-      <div class="pill">Production Deployment</div>
-      <h2>Automated Order Verification – YOLO + Python</h2>
+      <div class="section-header">
+        <h2>Automated Order Verification – YOLO + Python</h2>
+        <span class="pill">Production Deployment</span>
+      </div>
       <video controls src="pictures/old_verification.mp4"></video>
       <div class="slider" id="slider2">
         <img class="slides" src="pictures/yolo_test.jpg" alt="YOLO test"/>
@@ -94,19 +107,23 @@
       <p><b>Outcome:</b> Replaced manual verification; system is active in production.</p>
 
       <!-- AMR -->
-      <div class="pill">Work Experience</div>
-      <h2>AMR Inspection & Diagnosis</h2>
+      <div class="section-header">
+        <h2>AMR Inspection & Diagnosis</h2>
+        <span class="pill">Work Experience</span>
+      </div>
       <img src="pictures/amr.jpeg" alt="AMR"/>
       <p><b>Problem:</b> AMR lift platform failed to actuate.</p>
       <p><b>Approach:</b> Conducted hardware/electrical inspection.</p>
       <p><b>Outcome:</b> Identified and fixed a loose servo connection, restoring full functionality.</p>
 
       <!-- Rover -->
-      <div class="pill">School Project</div>
-      <h2>Rover – Senior Project (URC Competition)</h2>
+      <div class="section-header">
+        <h2>Rover – Senior Project (URC Competition)</h2>
+        <span class="pill">School Project</span>
+      </div>
       <div class="slider" id="slider3">
-        <img class="slides" src="pictures/rover_test.jpeg" alt="Rover test"/>
         <img class="slides" src="pictures/rover_cad.png" alt="Rover CAD"/>
+        <img class="slides" src="pictures/rover_test.jpeg" alt="Rover test"/>
         <a class="prev" onclick="plusSlides(-1, slider3)">&#10094;</a>
         <a class="next" onclick="plusSlides(1, slider3)">&#10095;</a>
         <div class="thumbs"></div>
@@ -116,20 +133,24 @@
       <p><b>Outcome:</b> Project is in-progress, targeting competition readiness.</p>
 
       <!-- Balancing -->
-      <div class="pill">School Project</div>
-      <h2>Balancing Robot – Mechatronics Project</h2>
+      <div class="section-header">
+        <h2>Balancing Robot – Mechatronics Project</h2>
+        <span class="pill">School Project</span>
+      </div>
       <video controls src="pictures/balancing.mp4"></video>
       <p><b>Problem:</b> Implement self-balancing on a MinSeg robot.</p>
       <p><b>Approach:</b> Modeled dynamics in MATLAB/Simulink and designed controllers.</p>
       <p><b>Outcome:</b> Achieved reliable self-balancing behavior.</p>
 
       <!-- Platen -->
-      <div class="pill">Custom Tooling</div>
-      <h2>Custom Printing Platen – Short Sleeves/Neck</h2>
+      <div class="section-header">
+        <h2>Custom Printing Platen – Short Sleeves/Neck</h2>
+        <span class="pill">Custom Tooling</span>
+      </div>
       <div class="slider" id="slider4">
+        <img class="slides" src="pictures/platen_cad.png" alt="Platen CAD"/>
         <img class="slides" src="pictures/platen.jpeg" alt="Platen"/>
         <img class="slides" src="pictures/platen_cut.jpeg" alt="Platen Cut"/>
-        <img class="slides" src="pictures/platen_cad.png" alt="Platen CAD"/>
         <a class="prev" onclick="plusSlides(-1, slider4)">&#10094;</a>
         <a class="next" onclick="plusSlides(1, slider4)">&#10095;</a>
         <div class="thumbs"></div>
@@ -159,7 +180,7 @@
       index = (index + n + slides.length) % slides.length;
       showSlide(slider,index);
     }
-    // init sliders
+    // init sliders with thumbs
     document.querySelectorAll(".slider").forEach(slider=>{
       let slides = slider.getElementsByClassName("slides");
       let thumbsDiv = slider.querySelector(".thumbs");
