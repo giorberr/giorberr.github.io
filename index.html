@@ -26,17 +26,23 @@
     .subtitle{color:var(--muted); margin-bottom:18px}
     h2{font-size:22px; margin:24px 0 10px; color:var(--accent)}
     p{margin:8px 0; line-height:1.5}
-    img, video{
-      max-width:600px; width:100%;
-      border-radius:12px; margin:16px auto;
-      display:block;
-    }
+    img, video{max-width:600px; width:100%; border-radius:12px; margin:16px auto; display:block;}
     .pill{
       display:inline-flex;align-items:center;gap:8px;
       padding:6px 10px;border-radius:999px;
       background:var(--accent2);color:#fff;
       font-size:12px;margin-bottom:20px
     }
+    /* slider styles */
+    .slider{position:relative;max-width:600px;margin:20px auto}
+    .slides{display:none}
+    .prev, .next{
+      cursor:pointer; position:absolute; top:50%; width:auto; padding:8px;
+      margin-top:-22px; color:#fff; font-weight:bold; font-size:18px;
+      background:rgba(0,0,0,0.4); border-radius:0 3px 3px 0; user-select:none;
+    }
+    .next{right:0;border-radius:3px 0 0 3px}
+    .prev:hover, .next:hover{background:rgba(0,0,0,0.7)}
   </style>
 </head>
 <body>
@@ -45,29 +51,39 @@
       <h1>Giorgio Berrospi</h1>
       <div class="subtitle">Mechanical Engineer • Robotics & Automation</div>
 
+      <!-- Kitting System -->
       <div class="pill">Production Deployment</div>
       <h2>Garment Kitting System – Fanuc CRX-25iA</h2>
-      <img src="pictures/fork_platform.jpeg" alt="Fork Platform"/>
-      <img src="pictures/fork_rack.jpeg" alt="Fork Rack"/>
-      <img src="pictures/forks.jpg" alt="Forks Assembly"/>
-      <img src="pictures/racks.jpeg" alt="Racks"/>
-      <img src="pictures/cardboard_rack.jpeg" alt="Cardboard Rack"/>
-      <img src="pictures/rack_cad.png" alt="Rack CAD"/>
+      <div class="slider" id="slider1">
+        <img class="slides" src="pictures/fork_platform.jpeg" alt="Fork Platform"/>
+        <img class="slides" src="pictures/fork_rack.jpeg" alt="Fork Rack"/>
+        <img class="slides" src="pictures/forks.jpg" alt="Forks Assembly"/>
+        <img class="slides" src="pictures/racks.jpeg" alt="Racks"/>
+        <img class="slides" src="pictures/cardboard_rack.jpeg" alt="Cardboard Rack"/>
+        <img class="slides" src="pictures/rack_cad.png" alt="Rack CAD"/>
+        <a class="prev" onclick="plusSlides(-1, slider1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, slider1)">&#10095;</a>
+      </div>
       <p><b>Problem:</b> Manual garment handling was inefficient.</p>
       <p><b>Approach:</b> Designed custom racks (angled layout), 3D-printed rollers, and an end effector for a Fanuc CRX-25iA robot. Integrated Cognex DM290 QR scanner and validated in Roboguide with Karel scripting.</p>
       <p><b>Outcome:</b> Deployed in production, improving efficiency and reducing manual labor.</p>
 
+      <!-- Order Verification -->
       <div class="pill">Production Deployment</div>
       <h2>Automated Order Verification – YOLO + Python</h2>
-      <!-- Video moved to top -->
       <video controls src="pictures/old_verification.mp4"></video>
-      <img src="pictures/yolo_test.jpg" alt="YOLO test"/>
-      <img src="pictures/mixed_yolo.png" alt="Mixed YOLO"/>
-      <img src="pictures/order_yolo.png" alt="Order YOLO"/>
+      <div class="slider" id="slider2">
+        <img class="slides" src="pictures/yolo_test.jpg" alt="YOLO test"/>
+        <img class="slides" src="pictures/mixed_yolo.png" alt="Mixed YOLO"/>
+        <img class="slides" src="pictures/order_yolo.png" alt="Order YOLO"/>
+        <a class="prev" onclick="plusSlides(-1, slider2)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, slider2)">&#10095;</a>
+      </div>
       <p><b>Problem:</b> Existing verification station was laggy and strained operators’ eyes.</p>
       <p><b>Approach:</b> Implemented YOLO-based object detection in Python using a pre-trained model.</p>
       <p><b>Outcome:</b> Replaced manual verification; system is active in production.</p>
 
+      <!-- AMR -->
       <div class="pill">Work Experience</div>
       <h2>AMR Inspection & Diagnosis</h2>
       <img src="pictures/amr.jpeg" alt="AMR"/>
@@ -75,14 +91,20 @@
       <p><b>Approach:</b> Conducted hardware/electrical inspection.</p>
       <p><b>Outcome:</b> Identified and fixed a loose servo connection, restoring full functionality.</p>
 
+      <!-- Rover -->
       <div class="pill">School Project</div>
       <h2>Rover – Senior Project (URC Competition)</h2>
-      <img src="pictures/rover_test.jpeg" alt="Rover test"/>
-      <img src="pictures/rover_cad.png" alt="Rover CAD"/>
+      <div class="slider" id="slider3">
+        <img class="slides" src="pictures/rover_test.jpeg" alt="Rover test"/>
+        <img class="slides" src="pictures/rover_cad.png" alt="Rover CAD"/>
+        <a class="prev" onclick="plusSlides(-1, slider3)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, slider3)">&#10095;</a>
+      </div>
       <p><b>Problem:</b> Develop a rover for the URC competition.</p>
       <p><b>Approach:</b> Team design and testing of rover subsystems.</p>
       <p><b>Outcome:</b> Project is in-progress, targeting competition readiness.</p>
 
+      <!-- Balancing -->
       <div class="pill">School Project</div>
       <h2>Balancing Robot – Mechatronics Project</h2>
       <video controls src="pictures/balancing.mp4"></video>
@@ -90,15 +112,40 @@
       <p><b>Approach:</b> Modeled dynamics in MATLAB/Simulink and designed controllers.</p>
       <p><b>Outcome:</b> Achieved reliable self-balancing behavior.</p>
 
+      <!-- Platen -->
       <div class="pill">Custom Tooling</div>
       <h2>Custom Printing Platen – Short Sleeves/Neck</h2>
-      <img src="pictures/platen.jpeg" alt="Platen"/>
-      <img src="pictures/platen_cut.jpeg" alt="Platen Cut"/>
-      <img src="pictures/platen_cad.png" alt="Platen CAD"/>
+      <div class="slider" id="slider4">
+        <img class="slides" src="pictures/platen.jpeg" alt="Platen"/>
+        <img class="slides" src="pictures/platen_cut.jpeg" alt="Platen Cut"/>
+        <img class="slides" src="pictures/platen_cad.png" alt="Platen CAD"/>
+        <a class="prev" onclick="plusSlides(-1, slider4)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, slider4)">&#10095;</a>
+      </div>
       <p><b>Problem:</b> Standard platens were not suitable for sleeve/neck printing.</p>
       <p><b>Approach:</b> Designed new platen in CAD, CNC-machined prototypes, and tested in-house.</p>
       <p><b>Outcome:</b> Transitioned to external sourcing for ≈150 units.</p>
     </div>
   </div>
+
+  <script>
+    function plusSlides(n, slider) {
+      let slides = slider.getElementsByClassName("slides");
+      let index = parseInt(slider.getAttribute("data-index") || 0);
+      slides[index].style.display = "none";
+      index = (index + n + slides.length) % slides.length;
+      slides[index].style.display = "block";
+      slider.setAttribute("data-index", index);
+    }
+    // initialize sliders
+    document.querySelectorAll(".slider").forEach(slider=>{
+      let slides = slider.getElementsByClassName("slides");
+      if(slides.length>0){
+        for(let i=0;i<slides.length;i++) slides[i].style.display="none";
+        slides[0].style.display="block";
+        slider.setAttribute("data-index", 0);
+      }
+    });
+  </script>
 </body>
 </html>
