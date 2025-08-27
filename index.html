@@ -34,7 +34,7 @@
       font-size:12px;margin-bottom:20px
     }
     /* slider styles */
-    .slider{position:relative;max-width:600px;margin:20px auto}
+    .slider{position:relative;max-width:600px;margin:20px auto;text-align:center}
     .slides{display:none}
     .prev, .next{
       cursor:pointer; position:absolute; top:50%; width:auto;
@@ -46,6 +46,11 @@
     .next{right:0}
     .prev{left:0}
     .prev:hover, .next:hover{background:rgba(0,0,0,0.8)}
+
+    /* thumbnails */
+    .thumbs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .thumbs img{width:80px;height:60px;object-fit:cover;border-radius:6px;opacity:0.6;cursor:pointer;transition:0.3s;border:2px solid transparent}
+    .thumbs img.active, .thumbs img:hover{opacity:1;border:2px solid var(--accent)}
   </style>
 </head>
 <body>
@@ -66,6 +71,7 @@
         <img class="slides" src="pictures/rack_cad.png" alt="Rack CAD"/>
         <a class="prev" onclick="plusSlides(-1, slider1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1, slider1)">&#10095;</a>
+        <div class="thumbs"></div>
       </div>
       <p><b>Problem:</b> Manual garment handling was inefficient.</p>
       <p><b>Approach:</b> Designed custom racks (angled layout), 3D-printed rollers, and an end effector for a Fanuc CRX-25iA robot. Integrated Cognex DM290 QR scanner and validated in Roboguide with Karel scripting.</p>
@@ -81,6 +87,7 @@
         <img class="slides" src="pictures/order_yolo.png" alt="Order YOLO"/>
         <a class="prev" onclick="plusSlides(-1, slider2)">&#10094;</a>
         <a class="next" onclick="plusSlides(1, slider2)">&#10095;</a>
+        <div class="thumbs"></div>
       </div>
       <p><b>Problem:</b> Existing verification station was laggy and strained operators’ eyes.</p>
       <p><b>Approach:</b> Implemented YOLO-based object detection in Python using a pre-trained model.</p>
@@ -102,6 +109,7 @@
         <img class="slides" src="pictures/rover_cad.png" alt="Rover CAD"/>
         <a class="prev" onclick="plusSlides(-1, slider3)">&#10094;</a>
         <a class="next" onclick="plusSlides(1, slider3)">&#10095;</a>
+        <div class="thumbs"></div>
       </div>
       <p><b>Problem:</b> Develop a rover for the URC competition.</p>
       <p><b>Approach:</b> Team design and testing of rover subsystems.</p>
@@ -124,6 +132,7 @@
         <img class="slides" src="pictures/platen_cad.png" alt="Platen CAD"/>
         <a class="prev" onclick="plusSlides(-1, slider4)">&#10094;</a>
         <a class="next" onclick="plusSlides(1, slider4)">&#10095;</a>
+        <div class="thumbs"></div>
       </div>
       <p><b>Problem:</b> Standard platens were not suitable for sleeve/neck printing.</p>
       <p><b>Approach:</b> Designed new platen in CAD, CNC-machined prototypes, and tested in-house.</p>
@@ -132,21 +141,37 @@
   </div>
 
   <script>
+    function showSlide(slider, n) {
+      let slides = slider.getElementsByClassName("slides");
+      let thumbs = slider.querySelectorAll(".thumbs img");
+      if (slides.length === 0) return;
+      for (let i=0;i<slides.length;i++) {
+        slides[i].style.display="none";
+        if(thumbs[i]) thumbs[i].classList.remove("active");
+      }
+      slides[n].style.display="block";
+      if(thumbs[n]) thumbs[n].classList.add("active");
+      slider.setAttribute("data-index", n);
+    }
     function plusSlides(n, slider) {
       let slides = slider.getElementsByClassName("slides");
       let index = parseInt(slider.getAttribute("data-index") || 0);
-      slides[index].style.display = "none";
       index = (index + n + slides.length) % slides.length;
-      slides[index].style.display = "block";
-      slider.setAttribute("data-index", index);
+      showSlide(slider,index);
     }
-    // initialize sliders
+    // init sliders
     document.querySelectorAll(".slider").forEach(slider=>{
       let slides = slider.getElementsByClassName("slides");
+      let thumbsDiv = slider.querySelector(".thumbs");
       if(slides.length>0){
-        for(let i=0;i<slides.length;i++) slides[i].style.display="none";
-        slides[0].style.display="block";
-        slider.setAttribute("data-index", 0);
+        // create thumbnails
+        for(let i=0;i<slides.length;i++){
+          let t = document.createElement("img");
+          t.src = slides[i].src;
+          t.onclick=()=>showSlide(slider,i);
+          thumbsDiv.appendChild(t);
+        }
+        showSlide(slider,0);
       }
     });
   </script>
