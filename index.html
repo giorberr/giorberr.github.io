@@ -6,112 +6,96 @@
   <title>Giorgio Berrospi – Robotics Portfolio</title>
   <style>
     :root{
-      --bg:#f6f7fb; --panel:#ffffff; --muted:#6b7280; --text:#0f172a;
-      --accent:#06b6d4; --accent2:#4f46e5;
-      --border:rgba(15,23,42,0.08);
-      --shadow: 0 12px 28px rgba(2,8,23,0.08);
+      --bg:#0f172a; --panel:#1e293b; --muted:#94a3b8; --text:#f1f5f9;
+      --accent:#06b6d4; --accent2:#6366f1;
+      --border:rgba(241,245,249,0.08);
+      --shadow: 0 12px 28px rgba(0,0,0,0.6);
     }
-    html,body{background:var(--bg);color:var(--text);font-family:Inter, ui-sans-serif, system-ui; margin:0; padding:0;}
+    html,body{
+      background:var(--bg);color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui;
+      margin:0; padding:0;
+    }
     .wrap{max-width:1000px; margin:40px auto; padding:24px}
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.92));
+      background:var(--panel);
       border:1px solid var(--border); border-radius:16px;
       padding:32px; box-shadow:var(--shadow);
-      margin-bottom:40px;
-      display:flex; flex-direction:column;
     }
-    h1{font-size:28px; margin:0 0 10px; line-height:1.2}
+    h1{font-size:32px; margin:0 0 10px; line-height:1.2}
     .subtitle{color:var(--muted); margin-bottom:18px}
-    h2{font-size:22px; margin:18px 0 10px}
-    h3{font-size:16px; margin:14px 0 8px; color:var(--muted)}
-    p{margin:8px 0}
-    ul{margin:8px 0; padding-left:20px}
-    img{max-width:100%;border-radius:12px;margin:12px 0}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#f1f5f9;color:#0f172a;border:1px solid var(--border);font-size:12px;margin-bottom:12px}
+    h2{font-size:22px; margin:24px 0 10px; color:var(--accent)}
+    p{margin:8px 0; line-height:1.5}
+    img, video{
+      max-width:100%;border-radius:12px;margin:16px 0;
+      display:block;
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      background:var(--accent2);color:#fff;
+      font-size:12px;margin-bottom:20px
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Giorgio Berrospi</h1>
-    <div class="subtitle">Mechanical Engineer • Robotics & Automation</div>
-  </div>
-
-  <!-- Kitting System -->
-  <div class="wrap">
     <div class="card">
+      <h1>Giorgio Berrospi</h1>
+      <div class="subtitle">Mechanical Engineer • Robotics & Automation</div>
+
       <div class="pill">Production Deployment</div>
       <h2>Garment Kitting System – Fanuc CRX-25iA</h2>
       <img src="pictures/fork_platform.jpg" alt="Fork Platform"/>
       <img src="pictures/fork_rack.jpg" alt="Rack"/>
+      <img src="pictures/forks.jpg" alt="Forks Assembly"/>
+      <img src="pictures/racks.jpg" alt="Racks"/>
+      <img src="pictures/cardboard_rack.jpg" alt="Cardboard Rack"/>
+      <img src="pictures/rack_cad.png" alt="Rack CAD"/>
       <p><b>Problem:</b> Manual garment handling was inefficient.</p>
-      <p><b>Approach:</b> Designed custom racks, 3D-printed rollers, and an end effector for a Fanuc CRX-25iA robot. Integrated Cognex DM290 QR scanner and validated in Roboguide with Karel scripting.</p>
-      <p><b>Contribution:</b> Full design + prototyping + integration.</p>
+      <p><b>Approach:</b> Designed custom racks (angled layout), 3D-printed rollers, and an end effector for a Fanuc CRX-25iA robot. Integrated Cognex DM290 QR scanner and validated in Roboguide with Karel scripting.</p>
       <p><b>Outcome:</b> Deployed in production, improving efficiency and reducing manual labor.</p>
-    </div>
-  </div>
 
-  <!-- Order Verification -->
-  <div class="wrap">
-    <div class="card">
       <div class="pill">Production Deployment</div>
       <h2>Automated Order Verification – YOLO + Python</h2>
       <img src="pictures/yolo_test.jpg" alt="YOLO test"/>
+      <img src="pictures/mixed_yolo.png" alt="Mixed YOLO"/>
+      <img src="pictures/order_yolo.png" alt="Order YOLO"/>
+      <video controls src="pictures/old_verification.mp4"></video>
       <p><b>Problem:</b> Existing verification station was laggy and strained operators’ eyes.</p>
       <p><b>Approach:</b> Implemented YOLO-based object detection in Python using a pre-trained model.</p>
-      <p><b>Contribution:</b> Built and deployed a full verification pipeline with real-time accuracy.</p>
       <p><b>Outcome:</b> Replaced manual verification; system is active in production.</p>
-    </div>
-  </div>
 
-  <!-- AMR -->
-  <div class="wrap">
-    <div class="card">
       <div class="pill">Work Experience</div>
       <h2>AMR Inspection & Diagnosis</h2>
       <img src="pictures/amr.jpg" alt="AMR"/>
       <p><b>Problem:</b> AMR lift platform failed to actuate.</p>
       <p><b>Approach:</b> Conducted hardware/electrical inspection.</p>
-      <p><b>Contribution:</b> Identified and fixed a loose servo connection.</p>
-      <p><b>Outcome:</b> Restored full functionality with minimal downtime.</p>
-    </div>
-  </div>
+      <p><b>Outcome:</b> Identified and fixed a loose servo connection, restoring full functionality.</p>
 
-  <!-- School Projects -->
-  <div class="wrap">
-    <div class="card">
       <div class="pill">School Project</div>
       <h2>Rover – Senior Project (URC Competition)</h2>
       <img src="pictures/rover_test.jpg" alt="Rover test"/>
       <img src="pictures/rover_cad.png" alt="Rover CAD"/>
       <p><b>Problem:</b> Develop a rover for the URC competition.</p>
       <p><b>Approach:</b> Team design and testing of rover subsystems.</p>
-      <p><b>Contribution:</b> Diagnosis, evaluation, and testing of subsystems.</p>
       <p><b>Outcome:</b> Project is in-progress, targeting competition readiness.</p>
-    </div>
-  </div>
 
-  <div class="wrap">
-    <div class="card">
       <div class="pill">School Project</div>
       <h2>Balancing Robot – Mechatronics Project</h2>
-      <img src="pictures/balancing.mp4" alt="Balancing robot"/>
+      <video controls src="pictures/balancing.mp4"></video>
       <p><b>Problem:</b> Implement self-balancing on a MinSeg robot.</p>
       <p><b>Approach:</b> Modeled dynamics in MATLAB/Simulink and designed controllers.</p>
-      <p><b>Contribution:</b> Tuning and optimization of control loops.</p>
       <p><b>Outcome:</b> Achieved reliable self-balancing behavior.</p>
-    </div>
-  </div>
 
-  <!-- Custom Fixture -->
-  <div class="wrap">
-    <div class="card">
       <div class="pill">Custom Tooling</div>
       <h2>Custom Printing Platen – Short Sleeves/Neck</h2>
       <img src="pictures/platen.jpg" alt="Platen"/>
+      <img src="pictures/platen_cut.jpg" alt="Platen Cut"/>
+      <img src="pictures/platen_cad.png" alt="Platen CAD"/>
       <p><b>Problem:</b> Standard platens were not suitable for sleeve/neck printing.</p>
-      <p><b>Approach:</b> Designed new platen in CAD and fabricated prototypes via CNC machining.</p>
-      <p><b>Contribution:</b> In-house testing and transition to sourced manufacturing.</p>
-      <p><b>Outcome:</b> Scaled design to production (≈150 units).</p>
+      <p><b>Approach:</b> Designed new platen in CAD, CNC-machined prototypes, and tested in-house.</p>
+      <p><b>Outcome:</b> Transitioned to external sourcing for ≈150 units.</p>
     </div>
   </div>
 </body>
